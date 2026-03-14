@@ -26,7 +26,7 @@ else
     # Running via curl | bash — need to clone
     echo -e "${YELLOW}Running remote install — cloning repository...${NC}"
     TEMP_DIR=$(mktemp -d)
-    git clone --depth 1 https://github.com/zubair-trabzada/ai-marketing-claude.git "$TEMP_DIR/ai-marketing-claude" 2>/dev/null
+    git clone --depth 1 https://github.com/srao12345/ai-marketing-claude.git "$TEMP_DIR/ai-marketing-claude" 2>/dev/null "$TEMP_DIR/ai-marketing-claude" 2>/dev/null
     if [ $? -ne 0 ]; then
         echo -e "${RED}Failed to clone repository.${NC}"
         exit 1
@@ -87,6 +87,7 @@ SKILLS=(
     "market-report-pdf"
     "market-seo"
     "market-brand"
+    "market-design"
 )
 
 SKILL_COUNT=0
@@ -217,6 +218,7 @@ echo "  /market report <url>       Marketing report (Markdown)"
 echo "  /market report-pdf <url>   Marketing report (PDF)"
 echo "  /market seo <url>          SEO content audit"
 echo "  /market brand <url>        Brand voice analysis"
+echo "  /market design <url>       Social media Design"
 echo ""
 echo -e "  ${YELLOW}Start a new Claude Code session to use the skills.${NC}"
 echo ""
