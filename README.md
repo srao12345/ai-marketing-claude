@@ -1,5 +1,5 @@
 
-# AI Marketing Suite for Claude Code
+# AI Marketing Suite with Claude Code
 
 ![AI Marketing Suite for Claude Code](banner.svg)
 
