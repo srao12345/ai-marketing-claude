@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="banner.svg" alt="AI Marketing Suite for Claude Code" width="100%">
-</p>
 
 # AI Marketing Suite for Claude Code
 
