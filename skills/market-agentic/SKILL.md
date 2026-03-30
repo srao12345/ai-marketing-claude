@@ -49,7 +49,24 @@ Use `WebFetch` to retrieve:
 - Case studies or customer stories (up to 3)
 - Blog or resources (sample 2–3 recent posts on agentic topics)
 
-Note any pages that are gated, unavailable, or return errors.
+**404 and error handling — critical:**
+When a page returns a 404, error, or empty response:
+- Do NOT treat this as a confirmed finding or cite it as evidence of missing content
+- Attempt alternative URLs first — try `/trust`, `/security`, `/governance`, `/ai-governance`, `/platform/security` before concluding a page is absent
+- If all alternatives fail, flag it as "could not be verified — manual check recommended" rather than a critical gap
+- JavaScript-heavy pages may appear empty to WebFetch — note this limitation and do not score against the company for content that may exist but could not be rendered
+- Only report a page as definitively missing after trying at least 3 alternative paths
+
+**Plain English requirement for all findings:**
+Write all rationale for a senior marketing or product stakeholder — not a security engineer or technical buyer. Specifically:
+- Never use certifications or acronyms without explaining what they mean commercially:
+  - FedRAMP = US federal government cloud security certification — signals the platform meets strict government data standards
+  - HITRUST = healthcare industry security framework — signals the platform handles patient and health data safely
+  - SOC 2 = independent third-party audit confirming data security controls are working as claimed
+  - ISO 27001 = internationally recognised information security management standard
+  - HIPAA = US healthcare data privacy law compliance
+- Every finding must connect to a commercial consequence — what does this mean for pipeline, deal risk, or buyer trust?
+- Avoid phrases like "architecture diagrams absent" or "LLM not disclosed" without explaining why this matters to a buyer evaluating the product
 
 ### 1.2 Classify the Competitor Category
 
@@ -246,42 +263,36 @@ Evaluate:
 
 ---
 
-### Dimension 5: Competitive Differentiation and BOAT Positioning (0–100)
+### Dimension 5: Competitive Differentiation (0–100)
 
-**The core question:** In a market where every vendor claims to be "the leading agentic AI platform", does this company have a clear, ownable, defensible position — and does that position reflect where the enterprise market is actually going?
+**The core question:** In a crowded market where every vendor claims to be "the leading agentic AI platform", does this company have a clear, ownable, defensible position?
+
+Note: The competitor archetype classification from Phase 1.2 provides context for this dimension — but competitive differentiation is evaluated on the quality of the company's own positioning, not on whether they appear in any analyst report. Analyst recognition is one signal, not the only one.
 
 Evaluate:
 
-**Category ownership and BOAT alignment:**
-- Does the company claim a BOAT position — unified platform for orchestration, connectivity, low-code, and agentic automation?
-- If yes, does the marketing substantiate this claim with capability coverage across orchestration, IDP, RPA, low-code, and agentic automation — or is it a label without depth?
-- Is Gartner BOAT Magic Quadrant recognition cited where it exists? Note: the MQ was inaugural in 2025 and many platforms did not submit for evaluation — absence from the MQ is not automatically a credibility gap, but presence is a positive signal worth noting
-- Is the category claim consistent and specific across homepage, product pages, case studies, and analyst citations — or does it vary by audience?
+**Category clarity:**
+- Does the company have a specific, ownable position — or do they sound like every other vendor?
+- Is their core claim specific and defensible — technology-based, domain-based, or heritage-based?
+- Is the positioning consistent across homepage, product pages, and case studies — or does it shift by audience?
+- Is the moat clearly articulated — or must the buyer infer what makes this platform different?
 
-**Differentiation specificity:**
-- Is the core differentiator specific and defensible — or generic and easily claimed by any competitor?
-- Is the differentiation technology-based (native IDP + agentic), data-based (domain-trained models), ecosystem-based (integrations), or domain-based (regulated industry depth)?
-- Is the moat explicitly articulated — or must the buyer infer it?
-- For platforms with IDP heritage: is the combination of document intelligence and agentic automation positioned as a unified capability — or are they described as separate modules that happen to coexist?
+**Competitor-aware messaging:**
+- Does the marketing take implicit or explicit positions against the most relevant competitor archetypes?
+- For platforms with process heritage: is the depth of workflow and orchestration capability articulated as a differentiator against newer AI-native players?
+- For platforms with document intelligence: is the combination of IDP and agentic automation positioned as a unified capability — not two separate modules?
+- Are switching narratives present for buyers who have existing RPA or BPM investments?
 
-**Competitor-specific positioning:**
-Evaluate whether the marketing takes clear positions against the most relevant competitor archetypes:
-
-- **vs BOAT Leaders (ServiceNow, Pega, Appian):** Does the marketing address why a buyer should choose this platform over an established BOAT Leader? Speed to value, total cost of ownership, and IDP depth are common angles.
-- **vs RPA-evolved platforms (UiPath, Automation Anywhere):** Does the marketing distinguish between RPA-origin platforms bolting on AI versus native agentic platforms? The technical debt argument is real and available.
-- **vs hyperscalers (Microsoft, Google, AWS):** Does the marketing address the ecosystem lock-in risk and the depth gap — hyperscalers are broad but shallow on regulated industry processes?
-- **vs pureplay agentic infra (Lyzr, Ema):** Does the marketing address platform completeness — agentic infrastructure without orchestration, IDP, and process heritage is not sufficient for complex enterprise workflows?
-
-**Switching narrative:**
-- Are there comparison pages, alternative pages, or vs. pages targeting competitor search queries?
-- Is there a clear "why replace / why add" narrative for buyers evaluating competitive options?
-- Is migration support or co-existence described — for buyers with existing RPA or BPM investments?
-
-**Agentic-specific differentiation signals:**
-- Proprietary agent architectures, orchestration engines, or agent libraries
-- Domain-trained models vs generic LLM wrappers — clearly communicated
+**Differentiation signals specific to agentic AI:**
+- Proprietary orchestration approach or agent architecture
+- Domain-trained models vs generic LLM wrappers — clearly communicated in plain language
 - Pre-built agent depth — number, quality, industry specificity, time to deploy
-- Governance-native vs governance-added-on — is compliance built into the architecture or bolted on?
+- Governance-native vs governance-added-on — is compliance built into the architecture or bolted on after the fact?
+
+**Analyst and market validation:**
+- Is third-party recognition (Gartner, Forrester, Everest Group) cited where it exists?
+- Are customer logos and retention metrics used to signal market standing?
+- Are industry awards or analyst quotes used effectively — or are they buried in a press release page nobody reads?
 
 ---
 
@@ -323,22 +334,22 @@ Agentic Marketing Score = (
     Trust_Governance_Observability   × 0.25 +
     Technical_Credibility            × 0.20 +
     Enterprise_Readiness             × 0.15 +
-    Competitive_BOAT_Positioning     × 0.10 +
+    Competitive_Differentiation      × 0.10 +
     Buyer_Journey_Score              × 0.05
 )
 ```
 
-Trust, Governance and Observability is weighted equally with Value Proposition because in enterprise agentic AI — particularly BOAT platforms targeting regulated industries — you cannot convert buyers without both. A brilliant value proposition with no governance narrative loses to a less capable platform that has invested in trust signals.
+Trust, Governance and Observability is weighted equally with Value Proposition because in enterprise agentic AI — particularly in regulated industries — you cannot convert buyers without both. A brilliant value proposition with no governance narrative loses to a less capable platform that has invested in trust signals.
 
-Competitive and BOAT Positioning is weighted at 10% because category clarity and differentiation narrative are increasingly important as BOAT becomes the dominant enterprise automation framework. Buyers use analyst frameworks as shortlist filters — companies with a clear, evidence-backed BOAT narrative and strong differentiation against known competitors win more deals at the positioning stage.
+Competitive Differentiation is weighted at 10% because category clarity and a specific, defensible positioning narrative increasingly determine whether a company makes the shortlist before the product is even evaluated.
 
 **Score interpretation:**
 
 | Score | Grade | Meaning |
 |---|---|---|
-| 85–100 | A | Excellent — marketing is calibrated for enterprise agentic/BOAT buyers |
-| 70–84 | B | Good — clear opportunities to improve trust, governance or BOAT positioning |
-| 55–69 | C | Average — significant gaps in trust architecture, observability, or competitive positioning |
+| 85–100 | A | Excellent — marketing is calibrated for enterprise agentic AI buyers |
+| 70–84 | B | Good — clear opportunities to improve trust, governance or differentiation |
+| 55–69 | C | Average — significant gaps in trust architecture, observability, or positioning |
 | 40–54 | D | Below average — fundamental enterprise agentic marketing problems to address |
 | 0–39 | F | Critical — marketing is not ready for enterprise agentic AI selling |
 
@@ -437,7 +448,7 @@ Paragraph 5: Top 3 actions that would most improve enterprise conversion for age
 | Trust, Governance & Observability | X/100 | 25% | X | [one-line finding] |
 | Technical Credibility | X/100 | 20% | X | [one-line finding] |
 | Enterprise Readiness | X/100 | 15% | X | [one-line finding] |
-| Competitive & BOAT Positioning | X/100 | 10% | X | [one-line finding] |
+| Competitive Differentiation | X/100 | 10% | X | [one-line finding] |
 | Buyer Journey & Conversion | X/100 | 5% | X | [one-line finding] |
 | **TOTAL** | | **100%** | **X/100** | |
 
@@ -535,7 +546,7 @@ Paragraph 5: Top 3 actions that would most improve enterprise conversion for age
 ### Enterprise Readiness
 [Full findings — customer evidence quality, analyst validation, commercial model]
 
-### Competitive & BOAT Positioning
+### Competitive Differentiation
 [Full findings — archetype classification, BOAT MQ status, competitor-specific positioning gaps, switching narrative quality]
 
 ### Buyer Journey & Conversion
@@ -563,19 +574,42 @@ and appropriate for their actual product? Flag any inconsistencies across pages.
 
 ---
 
-## Phase 4: PPT Report Generation
+## Phase 4: Report Output Generation
 
-After writing AGENTIC-AUDIT.md, generate a stakeholder-ready PowerPoint presentation using pptxgenjs. This makes the audit immediately shareable with leadership, product teams, and sales — without requiring anyone to read a long markdown report.
+After writing AGENTIC-AUDIT.md, generate two additional output formats — a PowerPoint deck and a PDF report. This makes the audit immediately shareable in different contexts: the PPT for leadership and sales presentations, the PDF for sharing via email or uploading to a portal.
 
 ### 4.1 Setup
 
-Check that pptxgenjs is available:
+Check that required tools are available:
 
 ```bash
 which pptxgenjs || npm install -g pptxgenjs
+pip install reportlab --break-system-packages --quiet
 ```
 
-### 4.2 Generate the PPT
+### 4.2 Generate the PDF report
+
+Before generating the PPT, produce a clean PDF version of the audit using reportlab. The PDF should mirror the structure of AGENTIC-AUDIT.md but formatted for professional sharing:
+
+```python
+# Write to /tmp/generate_audit_pdf.py then execute with:
+# python3 /tmp/generate_audit_pdf.py
+```
+
+PDF structure:
+- Cover page: company name, URL, date, overall score and grade
+- Executive summary (2 pages max)
+- Score breakdown table
+- Buyer fear coverage matrix — each fear in plain English with status
+- Key findings — severity, finding, commercial impact
+- Prioritised action plan — Quick Wins / Strategic / Long-term
+- Back page: competitor archetype and next steps
+
+Output file: `AGENTIC-AUDIT-[CompanyName]-[YYYY-MM-DD].pdf`
+
+Style: clean, minimal, professional. Black text on white. Teal accent colour for headings. No decorative elements. Font: Helvetica. All technical terms explained in plain English inline.
+
+### 4.3 Generate the PPT
 
 Write a Node.js script to `/tmp/agentic-audit-ppt.js` and execute it. The script reads the audit findings you have already produced and encodes them into a 7-slide deck.
 
@@ -743,7 +777,7 @@ Dimension Breakdown:
   Trust, Governance & Observability:[XX]/100 ██████░░░░
   Technical Credibility:            [XX]/100 ███████░░░
   Enterprise Readiness:             [XX]/100 █████░░░░░
-  Competitive & BOAT Positioning:   [XX]/100 ████████░░
+  Competitive Differentiation:   [XX]/100 ████████░░
   Buyer Journey & Conversion:       [XX]/100 ██████░░░░
 
 Buyer Fears Addressed: [X]/8
@@ -752,8 +786,9 @@ Critical Findings: [X]
 Quick Wins: [X]
 
 Outputs saved:
-  → AGENTIC-AUDIT.md          (full markdown report)
-  → AGENTIC-AUDIT-[Co]-[date].pptx  (stakeholder presentation)
+  → AGENTIC-AUDIT.md                      (full markdown report)
+  → AGENTIC-AUDIT-[Co]-[date].pdf         (PDF — shareable via email)
+  → AGENTIC-AUDIT-[Co]-[date].pptx        (PowerPoint — for presentations)
 
 Run /market audit for a full marketing audit including SEO and brand analysis.
 ```
